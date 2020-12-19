@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "yubaca.id"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    androidExtensions {
+
+        experimental = true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // Test Unit
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Dagger2
+    implementation "com.google.dagger:dagger:2.16"
+    kapt "com.google.dagger:dagger-compiler:2.16"
+    kapt "com.google.dagger:dagger-android-processor:2.16"
+    implementation "com.google.dagger:dagger-android-support:2.16"
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:2.2.18"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    //Retrofit 2
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.2"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+
+    // Okhttp3 + Interceptor
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.3.0-alpha03'
+    implementation 'androidx.room:room-rxjava2:2.3.0-alpha03'
+    kapt 'androidx.room:room-compiler:2.3.0-alpha03'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Pagination
+    implementation "androidx.paging:paging-runtime:2.1.2"
+
+    def lifecycle_version = "1.1.1"
+
+    // ViewModel and LiveData
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.3.0-beta01'
+    kapt 'androidx.lifecycle:lifecycle-compiler:2.3.0-beta01'
+
+    // Timber
+    implementation 'com.github.ajalt:timberkt:1.5.1'
+
+    // UI Supported
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+
+}

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/tvAppName"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favorite"
+        android:textColor="@color/color_black_text"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAppName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/tvDescAppName"
+        android:textColor="@color/color_black_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Berita yang kamu sukai ada disini loh..."
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/ivSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAppName"
+        app:layout_constraintBottom_toTopOf="@id/tvDescAppName"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_search" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/favoriteLayout"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDescAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp"
+            tools:listitem="@layout/item_favorite"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/favoriteLayoutError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgError"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:contentDescription="@string/error_icon"
+            android:src="@drawable/ic_error" />
+
+        <TextView
+            android:id="@+id/tvErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgError"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:text="@string/oops_error"/>
+
+        <Button
+            android:id="@+id/btnRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvErrorMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="@string/refresh"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_rounded_btn"
+            android:textSize="17sp"
+            android:paddingStart="20dp"
+            android:visibility="gone"
+            android:paddingEnd="20dp"
+            tools:ignore="UnusedAttribute" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/favoriteLayoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgNoData"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:contentDescription="@string/error_icon"
+            android:src="@drawable/ic_empty" />
+
+        <TextView
+            android:id="@+id/tvNoDataMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgNoData"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/color_black_text"
+            android:layout_marginTop="16dp"
+            android:text="@string/oops_no_data"
+            android:textSize="20sp" />
+
+        <Button
+            android:background="@drawable/bg_rounded_btn"
+            android:id="@+id/btnTryAgain"
+            android:layout_width="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNoDataMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Coba Lagi"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            tools:ignore="UnusedAttribute" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

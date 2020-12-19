@@ -1,0 +1,43 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Yubaca"  parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/font</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="BottomNavigationView.NonActive" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/color_black_text</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="StatusBarWhite">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="fontFamily">@font/font</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="AppTheme.TransparentHome" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="fontFamily">@font/font</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    -<style parent="Widget.AppCompat.SearchView" name="AppSearchView">
+
+</style>
+
+</resources>
